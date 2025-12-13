@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <title>Sylo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+</head>
+
+<body class="h-dvh bg-gray-900 font-[Poppins] 
+             [&.light-mode-active]:bg-gray-100 
+             [&.light-mode-active]:text-gray-900 
+             text-white">
+
+    <header class="bg-gray-800/50 backdrop-blur-xl sticky top-0 z-1 flex justify-between p-3 border-gray-700 border-b-2
+                   [&.light-mode-active]:bg-white/50 
+                   [&.light-mode-active]:border-gray-300">
+        <div class="flex items-center">
+            <h1 class="text-2xl font-bold tracking-wide 
+                       [&.light-mode-active]:text-gray-800">SYLO</h1>
+        </div>
+        <div class="flex items-center gap-4">
+            <div class="relative group">
+                <span class="material-symbols-outlined p-2 text-gray-400 hover:bg-gray-600 duration-150 cursor-pointer rounded-full 
+                             [&.light-mode-active]:text-gray-600 [&.light-mode-active]:hover:bg-gray-200">notifications</span>
+                <span class="absolute top-12 left-1/2 -translate-x-1/2 mb-2 w-max px-2 py-1 text-sm text-white bg-gray-700 rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 delay-200">Ver Notificações</span>
+            </div>
+            
+            <div class=" flex items-center gap-4" id="theme-toggle">
+                <div class="relative group">
+                    <span class="material-symbols-outlined p-2 text-gray-400 hover:bg-gray-600 duration-150 cursor-pointer rounded-full 
+                                 [&.light-mode-active]:text-gray-600 [&.light-mode-active]:hover:bg-gray-200">light_mode</span>
+                    <span class="absolute top-12 left-1/2 -translate-x-1/2 mb-2 w-max px-2 py-1 text-sm text-white bg-gray-700 rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 delay-200">Tema Claro</span>
+                </div>
+
+                <div class="!hidden relative group">
+                    <span class="material-symbols-outlined p-2 text-gray-400 hover:bg-gray-600 duration-150 cursor-pointer rounded-full 
+                                 [&.light-mode-active]:text-gray-600 [&.light-mode-active]:hover:bg-gray-200">mode_night</span>
+                    <span class="absolute top-12 left-5 -translate-x-1/2 mb-2 w-max px-2 py-1 text-sm text-white bg-gray-700 rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 delay-200">Tema Escuro</span>
+                </div>
+            </div>
+
+            <div class="relative group">
+                <img class="size-12 inline rounded-full p-1 rounded-full hover:bg-gray-600 cursor-pointer duration-150" src="https://i.pinimg.com/originals/f1/d6/74/f1d67496e899a6b0cace9c05cd9fc9bd.jpg" alt="Foto do usuário">
+                <span class="absolute top-14 left-5.5 -translate-x-1/2 mb-2 w-max px-2 py-1 text-sm text-white bg-gray-700 rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 delay-200">Ver Perfil</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="h-full grid grid-cols-5">
+        
+        <aside class="bg-gray-800 flex flex-col gap-4 p-4 border-gray-700 border-r-2
+                      [&.light-mode-active]:bg-white 
+                      [&.light-mode-active]:border-gray-300">
+            
+            <div class="self-start relative group">
+                <span class="material-symbols-outlined text-gray-400 rounded-full p-2 hover:bg-gray-600 duration-150 cursor-pointer 
+                             [&.light-mode-active]:text-gray-600 [&.light-mode-active]:hover:bg-gray-200" id="btn-toggle-menu">menu</span>
+                <span class="absolute top-1.5 left-32 -translate-x-1/2 mb-2 w-max px-2 py-1 text-sm text-white bg-gray-700 rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 delay-200">Esconder Menu Lateral</span>
+            </div>
+            
+            <div class="p-3 flex gap-4 hover:bg-gray-600 duration-150 rounded-xl cursor-pointer 
+                        [&.light-mode-active]:hover:bg-gray-200" id="profile">
+                <img class="size-15 rounded-full" src="https://i.pinimg.com/originals/f1/d6/74/f1d67496e899a6b0cace9c05cd9fc9bd.jpg" alt="Foto do usuário">
+                <div class="flex flex-col justify-center">
+                    <h1 class="tracking-wide text-white [&.light-mode-active]:text-gray-900">Matheus Brasileiro Aguiar</h1>
+                    <h2 class="tracking-wide text-gray-400">Desenvolvedor de Software</h2>
+                </div>
+            </div>
+            
+            <nav class="flex flex-col sticky top-23 gap-2 
+                        [&.light-mode-active]:text-gray-900">
+                
+                <a href="#vs-general" class="flex gap-2 items-center text-xl p-2 rounded-xl bg-gray-600 hover:bg-gray-600 duration-150
+                                            [&.light-mode-active]:hover:bg-gray-200 [&.light-mode-active]:bg-gray-200">
+                    <span class="material-symbols-outlined">search</span>Visão Geral
+                </a>
+
+                <a href="#management" class="flex gap-2 items-center text-xl p-2 rounded-xl hover:bg-gray-600 duration-150
+                                             [&.light-mode-active]:hover:bg-gray-200">
+                    <span class="material-symbols-outlined">assignment</span>Gerenciamento
+                </a>
+
+                <a href="#stock" class="flex gap-2 items-center text-xl p-2 rounded-xl hover:bg-gray-600 duration-150
+                                         [&.light-mode-active]:hover:bg-gray-200">
+                    <span class="material-symbols-outlined">inventory_2</span>Estoque
+                </a>
+
+                <a href="#reports" class="flex gap-2 items-center text-xl p-2 rounded-xl hover:bg-gray-600 duration-150
+                                          [&.light-mode-active]:hover:bg-gray-200">
+                    <span class="material-symbols-outlined">docs</span>Relatórios
+                </a>
+
+                <a href="#config" class="flex gap-2 items-center text-xl p-2 rounded-xl hover:bg-gray-600 duration-150
+                                          [&.light-mode-active]:hover:bg-gray-200">
+                    <span class="material-symbols-outlined">settings</span>Configurações
+                </a>
+            </nav>
+        </aside>
+
+        <main class="bg-gray-900 col-span-4 p-5 [&.light-mode-active]:bg-gray-200">
+            
+            <section id="vs-general">
+                <h1 class="text-3xl [&.light-mode-active]:text-gray-900">Visão Geral</h1>
+
+                <div class="grid grid-cols-4 gap-6 mb-10 pt-6">
+                    <div class="bg-gray-800 border border-transparent hover:border-indigo-400 p-3 rounded-2xl space-y-3 hover:-translate-y-1 duration-300
+                                [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
+                        <div class="flex justify-between">
+                            <h2 class="text-gray-300 text-lg cursor-default [&.light-mode-active]:text-gray-600">Receita Total</h2>
+                            <span class="material-symbols-outlined text-indigo-400 cursor-default">money_bag</span>
+                        </div>
+                        <div class="cursor-default">
+                            <h3 class="text-white text-4xl font-bold [&.light-mode-active]:text-gray-900">R$ 0,00</h3>
+                            <p class="mt-1 text-sm text-green-400 flex items-center gap-1">
+                                <span class="material-symbols-outlined">trending_up</span>+0% (vs mês passado)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-3 rounded-2xl border border-transparent hover:border-yellow-400 space-y-3 hover:-translate-y-1 duration-300
+                                [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
+                        <div class="flex justify-between">
+                            <h2 class="text-gray-300 text-lg cursor-default [&.light-mode-active]:text-gray-600">Estoque Crítico</h2>
+                            <span class="material-symbols-outlined text-yellow-400 cursor-default">inventory_2</span>
+                        </div>
+                        <div class="cursor-default">
+                            <h3 class="text-4xl text-yellow-400 font-bold">0 Itens</h3>
+                            <p class="text-gray-400 text-sm mt-1">Produtos abaixo do mínimo</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-3 rounded-2xl border border-transparent hover:border-teal-400 space-y-3 hover:-translate-y-1 duration-300
+                                [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
+                        <div class="flex justify-between">
+                            <h2 class="text-gray-300 text-lg cursor-default [&.light-mode-active]:text-gray-600">Novos Pedidos</h2>
+                            <span class="material-symbols-outlined text-teal-400 cursor-default">shopping_cart</span>
+                        </div>
+                        <div class="cursor-default">
+                            <h3 class="text-4xl text-white font-bold [&.light-mode-active]:text-gray-900">0</h3>
+                            <p class="text-gray-400 text-sm mt-1">Pedidos aguardando processamento</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-3 rounded-2xl border border-transparent hover:border-orange-400 space-y-3 hover:-translate-y-1 duration-300
+                                [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
+                        <div class="flex justify-between">
+                            <h2 class="text-gray-300 text-lg cursor-default [&.light-mode-active]:text-gray-600">Tarefas Pendentes</h2>
+                            <span class="material-symbols-outlined text-orange-400 cursor-default">assignment</span>
+                        </div>
+                        <div class="cursor-default">
+                            <h3 class="text-4xl text-orange-400 font-bold">0</h3>
+                            <p class="text-sm text-gray-400 mt-1">Ações necessárias hoje</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-4 gap-6"> 
+                    <div class="bg-gray-800 col-span-3 p-6 rounded-2xl border border-gray-700
+                                [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
+                        <h2 class="flex items-center gap-2 text-xl font-semibold mb-4 [&.light-mode-active]:text-gray-900">
+                            <span class="material-symbols-outlined text-indigo-400">trending_up</span>
+                            Performance de Vendas (30 dias)
+                        </h2>
+                        <div class="h-80 mt-4 text-gray-500 flex justify-center items-center">
+                            <h1>O gráfico fica aqui</h1>
+                        </div>
+                    </div>
+
+                    <div class="col-span-1 bg-gray-800 p-6 rounded-2xl border border-gray-700
+                                [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
+                        <h2 class="text-xl font-semibold flex items-center gap-2 mb-4 [&.light-mode-active]:text-gray-900">
+                            <span class="material-symbols-outlined text-orange-400">pending_actions</span>
+                            Ações Urgentes
+                        </h2>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex justify-between items-center text-red-400 cursor-pointer">
+                                <p>Fazer pedido do Item X</p>
+                                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                            </li>
+                            <li class="flex justify-between items-center text-yellow-400 cursor-pointer">
+                                <p>Revisar Orçamento</p>
+                                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                            </li>
+                            <li class="flex justify-between items-center text-gray-300 cursor-pointer [&.light-mode-active]:text-gray-600">
+                                <p>Processar Pedido #1029</p>
+                                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div> 
+
+                <div class="mt-10 bg-gray-800 p-6 rounded-2xl border border-gray-700
+                            [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
+                    <h2 class="text-xl font-semibold flex items-center gap-2 mb-4 [&.light-mode-active]:text-gray-900">
+                        <span class="material-symbols-outlined text-teal-400">bar_chart</span>
+                        Análise Rápida de Estoque (Top 10 Produtos)
+                    </h2>
+                    
+                    <table class="min-w-full divide-y divide-gray-700 
+                                  [&.light-mode-active]:text-gray-900 [&.light-mode-active]:divide-gray-300">
+                        <thead>
+                            <tr class="text-left text-sm text-gray-400 uppercase tracking-wider [&.light-mode-active]:text-gray-500">
+                                <th class="py-3 pr-3">Produto</th>
+                                <th class="py-3 pr-3 text-right">Vendidos (30 dias)</th>
+                                <th class="py-3 pr-3 text-right">Estoque Atual</th>
+                                <th class="py-3">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-700 [&.light-mode-active]:divide-gray-300">
+                            <tr class="hover:bg-gray-700/50 [&.light-mode-active]:hover:bg-gray-100">
+                                <td class="py-3 pr-3 font-medium">Serviço de Nuvem - Plano Pro</td>
+                                <td class="py-3 pr-3 text-right">85</td>
+                                <td class="py-3 pr-3 text-right">1020</td>
+                                <td class="py-3"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100/10 text-green-400">Estável</span></td>
+                            </tr>
+                            <tr class="hover:bg-gray-700/50 [&.light-mode-active]:hover:bg-gray-100">
+                                <td class="py-3 pr-3 font-medium">Gadget X (Edição Limitada)</td>
+                                <td class="py-3 pr-3 text-right">55</td>
+                                <td class="py-3 pr-3 text-right text-red-400 font-bold">5</td>
+                                <td class="py-3"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100/10 text-red-400">Crítico</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="text-right mt-4">
+                        <a href="#stock" class="text-indigo-400 hover:text-indigo-300 text-sm">Ver Relatório Completo de Estoque &rarr;</a>
+                    </div>
+                </div>
+            </section> 
+
+            <section class="hidden" id="management">
+                <h1 class="text-3xl [&.light-mode-active]:text-gray-900 mb-6">Gerenciamento de Tarefas e Pedidos</h1>
+                
+                <div class="grid grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gray-800 p-5 rounded-2xl border border-gray-700 flex justify-between items-center hover:border-blue-400 duration-300 [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
+                        <div>
+                            <p class="text-gray-300 text-lg [&.light-mode-active]:text-gray-600">Pedidos em Processo</p>
+                            <h3 class="text-white text-3xl font-bold mt-1 [&.light-mode-active]:text-gray-900">12</h3>
+                        </div>
+                        <span class="material-symbols-outlined text-blue-400 text-5xl">package_2</span>
+                    </div>
+                    <div class="bg-gray-800 p-5 rounded-2xl border border-gray-700 flex justify-between items-center hover:border-green-400 duration-300 [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
+                        <div>
+                            <p class="text-gray-300 text-lg [&.light-mode-active]:text-gray-600">Tarefas Concluídas (Hoje)</p>
+                            <h3 class="text-white text-3xl font-bold mt-1 [&.light-mode-active]:text-gray-900">8</h3>
+                        </div>
+                        <span class="material-symbols-outlined text-green-400 text-5xl">check_circle</span>
+                    </div>
+                    <div class="bg-gray-800 p-5 rounded-2xl border border-gray-700 flex justify-between items-center hover:border-red-400 duration-300 [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
+                        <div>
+                            <p class="text-gray-300 text-lg [&.light-mode-active]:text-gray-600">Bloqueios Críticos</p>
+                            <h3 class="text-red-400 text-3xl font-bold mt-1">2</h3>
+                        </div>
+                        <span class="material-symbols-outlined text-red-400 text-5xl">lock</span>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700 [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
+                    <h2 class="text-xl font-semibold flex items-center gap-2 mb-4 [&.light-mode-active]:text-gray-900">
+                        <span class="material-symbols-outlined text-orange-400">format_list_bulleted</span>
+                        Lista de Ações e Pedidos
+                    </h2>
+                    <div class="overflow-x-auto">
+                        <h3 class="text-center text-gray-500 py-10">Tabela de pedidos ou tarefas detalhadas (placeholder).</h3>
+                    </div>
+                </div>
+            </section>
+
+            <section class="hidden" id="stock">
+                <h1 class="text-3xl [&.light-mode-active]:text-gray-900 mb-6">Controle e Inventário de Estoque</h1>
+
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl text-gray-400 [&.light-mode-active]:text-gray-600">Itens em Armazém</h2>
+                    <button class="bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-lg flex items-center gap-2 duration-200 cursor-pointer">
+                        <span class="material-symbols-outlined text-lg">add</span>
+                        Adicionar Novo Produto
+                    </button>
+                </div>
+                
+                <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700 [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
+                    <h3 class="text-center text-gray-500 py-20">Seu estoque está vazio.</h3>
+                </div>
+            </section>
+
+            <section class="hidden" id="reports">
+                <h1 class="text-3xl [&.light-mode-active]:text-gray-900 mb-6">Relatórios e Análises</h1>
+
+                <div class="grid grid-cols-4 gap-6">
+                    <div class="bg-gray-800 p-5 rounded-2xl border border-gray-700 hover:border-teal-400 duration-300 cursor-pointer [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
+                        <span class="material-symbols-outlined text-teal-400 text-4xl mb-3">bar_chart</span>
+                        <h3 class="text-white font-semibold [&.light-mode-active]:text-gray-900">Relatório de Vendas (Mês)</h3>
+                        <p class="text-gray-400 text-sm">Download ou visualizar.</p>
+                    </div>
+                    <div class="bg-gray-800 p-5 rounded-2xl border border-gray-700 hover:border-yellow-400 duration-300 cursor-pointer [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
+                        <span class="material-symbols-outlined text-yellow-400 text-4xl mb-3">pie_chart</span>
+                        <h3 class="text-white font-semibold [&.light-mode-active]:text-gray-900">Análise de Despesas</h3>
+                        <p class="text-gray-400 text-sm">Visualizar tendências de custo.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="hidden" id="config">
+                <h1 class="text-3xl [&.light-mode-active]:text-gray-900 mb-6">Configurações do Sistema</h1>
+                
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700 [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
+                        <h2 class="text-xl font-semibold flex items-center gap-2 mb-4 [&.light-mode-active]:text-gray-900">
+                            <span class="material-symbols-outlined text-purple-400">person</span>
+                            Perfil e Segurança
+                        </h2>
+                        <ul class="text-gray-300 space-y-3 [&.light-mode-active]:text-gray-700">
+                            <li>Alterar Senha</li>
+                            <li>Configurações de E-mail</li>
+                            <li>Autenticação de Dois Fatores</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700 [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
+                        <h2 class="text-xl font-semibold flex items-center gap-2 mb-4 [&.light-mode-active]:text-gray-900">
+                            <span class="material-symbols-outlined text-yellow-400">storage</span>
+                            Avançado e Backup
+                        </h2>
+                        <ul class="text-gray-300 space-y-3 [&.light-mode-active]:text-gray-700">
+                            <li>Gerenciar Integrações</li>
+                            <li>Logs do Sistema</li>
+                            <li>Configurar Backup Automático</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="assets/js/navigation.js"></script>
+</body>
+</html>
