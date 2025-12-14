@@ -29,8 +29,34 @@ function setupNavigation() {
     });
 }
 
+function toggleSideBar () {
+    const secondBtns = document.querySelectorAll('.btn-toggle-menu')
+    const mainToggleBtn = document.getElementById('aside-button')
+    const aside = document.getElementById('aside')
+    const main = document.getElementById('main')
 
+    mainToggleBtn.addEventListener('click', () => {
+        secondBtns.forEach(btn => {
+            btn.classList.toggle('!hidden')
+        })
+
+        aside.classList.toggle('!hidden')
+        main.classList.toggle('!col-span-full')
+    })
+
+    secondBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            secondBtns.forEach(btn => {
+                btn.classList.toggle('!hidden')
+            })
+            
+            aside.classList.toggle('!hidden')
+            main.classList.toggle('!col-span-full')
+        })
+    })
+}
 
 document.addEventListener('DOMContentLoaded', () => {
-    setupNavigation();        
+    setupNavigation();
+    toggleSideBar();      
 });

@@ -19,7 +19,7 @@
              [&.light-mode-active]:text-gray-900 
              text-white">
 
-    <header class="bg-gray-800/50 backdrop-blur-xl sticky top-0 z-1 flex justify-between p-3 border-gray-700 border-b-2
+    <header class="bg-gray-800/50 backdrop-blur-xl sticky -top-1 z-1 flex justify-between p-3 border-gray-700 border-b-2
                    [&.light-mode-active]:bg-white/50 
                    [&.light-mode-active]:border-gray-300">
         <div class="flex items-center">
@@ -48,7 +48,7 @@
             </div>
 
             <div class="relative group">
-                <img class="size-12 inline rounded-full p-1 rounded-full hover:bg-gray-600 cursor-pointer duration-150" src="https://i.pinimg.com/736x/39/e1/8d/39e18d9b3bcba88554bcbfbac81ffcec.jpg" alt="Foto do usuário">
+                <img class="size-12 inline rounded-full p-1 rounded-full hover:bg-gray-600 cursor-pointer duration-150" src="https://i.pinimg.com/736x/22/fe/13/22fe13416e90ce51b7da204eaa86292d.jpg" alt="Foto do usuário">
                 <span class="absolute top-14 left-5.5 -translate-x-1/2 mb-2 w-max px-2 py-1 text-sm text-white bg-gray-700 rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 delay-200">Ver Perfil</span>
             </div>
         </div>
@@ -56,61 +56,68 @@
 
     <div class="h-full grid grid-cols-5">
         
-        <aside class="bg-gray-800 flex flex-col gap-4 p-4 border-gray-700 border-r-2
-                      [&.light-mode-active]:bg-white 
-                      [&.light-mode-active]:border-gray-300">
+        <aside class="bg-gray-800 lg:flex hidden flex-col gap-4 p-4 border-gray-700 border-r-2
+                      [&.light-mode-active]:bg-white
+                      [&.light-mode-active]:border-gray-300" id="aside">
             
             <div class="self-start relative group">
                 <span class="material-symbols-outlined text-gray-400 rounded-full p-2 hover:bg-gray-600 duration-150 cursor-pointer 
-                             [&.light-mode-active]:text-gray-600 [&.light-mode-active]:hover:bg-gray-200" id="btn-toggle-menu">menu</span>
+                             [&.light-mode-active]:text-gray-600 [&.light-mode-active]:hover:bg-gray-200" id="aside-button">menu</span>
                 <span class="absolute top-1.5 left-32 -translate-x-1/2 mb-2 w-max px-2 py-1 text-sm text-white bg-gray-700 rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 delay-200">Esconder Menu Lateral</span>
             </div>
             
-            <div class="p-3 flex gap-4 hover:bg-gray-600 duration-150 rounded-xl cursor-pointer 
+            <div class="p-3 flex sm:flex-col sm:items-center xl:flex-row gap-4 hover:bg-gray-600 duration-150 rounded-xl cursor-pointer 
                         [&.light-mode-active]:hover:bg-gray-200" id="profile">
-                <img class="size-15 rounded-full" src="https://i.pinimg.com/736x/39/e1/8d/39e18d9b3bcba88554bcbfbac81ffcec.jpg" alt="Foto do usuário">
-                <div class="flex flex-col justify-center">
-                    <h1 class="tracking-wide text-white [&.light-mode-active]:text-gray-900">Isaque Aleixo Fontes</h1>
-                    <h2 class="tracking-wide text-gray-400">Desenvolvedor de Software</h2>
+                <img class="xl:size-15 md:size-20 sm:15 size-10 rounded-full" src="https://i.pinimg.com/736x/22/fe/13/22fe13416e90ce51b7da204eaa86292d.jpg" alt="Foto do usuário">
+                <div class="md:flex hidden md:text-left flex-col justify-center">
+                    <h1 class="tracking-wide text-white [&.light-mode-active]:text-gray-900 xl:text-left text-center">Isaque Aleixo Fontes</h1>
+                    <h2 class="tracking-wide text-gray-400 sm:text-sm md:text-base xl:text-left text-center">Desenvolvedor de Software</h2>
                 </div>
             </div>
             
             <nav class="flex flex-col sticky top-23 gap-2 
                         [&.light-mode-active]:text-gray-900">
                 
-                <a href="#vs-general" class="flex gap-2 items-center text-xl p-2 rounded-xl bg-gray-600 hover:bg-gray-600 duration-150
+                <a href="#vs-general" class="flex gap-2 items-center text-base xl:text-xl p-2 rounded-xl bg-gray-600 hover:bg-gray-600 duration-150
                                             [&.light-mode-active]:hover:bg-gray-200 [&.light-mode-active]:bg-gray-200">
                     <span class="material-symbols-outlined">search</span>Visão Geral
                 </a>
 
-                <a href="#management" class="flex gap-2 items-center text-xl p-2 rounded-xl hover:bg-gray-600 duration-150
+                <a href="#management" class="flex gap-2 items-center text-base xl:text-xl p-2 rounded-xl hover:bg-gray-600 duration-150
                                              [&.light-mode-active]:hover:bg-gray-200">
                     <span class="material-symbols-outlined">assignment</span>Gerenciamento
                 </a>
 
-                <a href="#stock" class="flex gap-2 items-center text-xl p-2 rounded-xl hover:bg-gray-600 duration-150
+                <a href="#stock" class="flex gap-2 items-center text-base xl:text-xl p-2 rounded-xl hover:bg-gray-600 duration-150
                                          [&.light-mode-active]:hover:bg-gray-200">
                     <span class="material-symbols-outlined">inventory_2</span>Estoque
                 </a>
 
-                <a href="#reports" class="flex gap-2 items-center text-xl p-2 rounded-xl hover:bg-gray-600 duration-150
+                <a href="#reports" class="flex gap-2 items-center text-base xl:text-xl p-2 rounded-xl hover:bg-gray-600 duration-150
                                           [&.light-mode-active]:hover:bg-gray-200">
                     <span class="material-symbols-outlined">docs</span>Relatórios
                 </a>
 
-                <a href="#config" class="flex gap-2 items-center text-xl p-2 rounded-xl hover:bg-gray-600 duration-150
+                <a href="#config" class="flex gap-2 items-center text-base xl:text-xl p-2 rounded-xl hover:bg-gray-600 duration-150
                                           [&.light-mode-active]:hover:bg-gray-200">
                     <span class="material-symbols-outlined">settings</span>Configurações
                 </a>
             </nav>
         </aside>
 
-        <main class="bg-gray-900 col-span-4 p-5 [&.light-mode-active]:bg-gray-200">
+        <main class="bg-gray-900 lg:col-span-4 col-span-full p-5 [&.light-mode-active]:bg-gray-200" id="main">
             
             <section id="vs-general">
-                <h1 class="text-3xl [&.light-mode-active]:text-gray-900">Visão Geral</h1>
+                <div class="flex justify-between">
+                    <h1 class="text-3xl [&.light-mode-active]:text-gray-900">Visão Geral</h1>
+                    <div class=" self-start relative group !hidden btn-toggle-menu">
+                        <span class="material-symbols-outlined text-gray-400 rounded-full p-2 hover:bg-gray-600 duration-150 cursor-pointer 
+                                    [&.light-mode-active]:text-gray-600 [&.light-mode-active]:hover:bg-gray-200">menu</span>
+                        <span class="absolute top-2 -right-6 -translate-x-1/2 mb-2 w-max px-2 py-1 text-sm text-white bg-gray-700 rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 delay-200">Abrir Menu Lateral</span>
+                    </div>
+                </div>
 
-                <div class="grid grid-cols-4 gap-6 mb-10 pt-6">
+                <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-10 mt-6">
                     <div class="bg-gray-800 border border-transparent hover:border-indigo-400 p-3 rounded-2xl space-y-3 hover:-translate-y-1 duration-300
                                 [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
                         <div class="flex justify-between">
@@ -159,7 +166,7 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-4 gap-6"> 
+                <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6"> 
                     <div class="bg-gray-800 col-span-3 p-6 rounded-2xl border border-gray-700
                                 [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
                         <h2 class="flex items-center gap-2 text-xl font-semibold mb-4 [&.light-mode-active]:text-gray-900">
@@ -171,7 +178,7 @@
                         </div>
                     </div>
 
-                    <div class="col-span-1 bg-gray-800 p-6 rounded-2xl border border-gray-700
+                    <div class="col-span-3 sm:col-span-3 xl:col-span-1 bg-gray-800 p-6 rounded-2xl border border-gray-700
                                 [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
                         <h2 class="text-xl font-semibold flex items-center gap-2 mb-4 [&.light-mode-active]:text-gray-900">
                             <span class="material-symbols-outlined text-orange-400">pending_actions</span>
@@ -234,9 +241,16 @@
             </section> 
 
             <section class="hidden" id="management">
-                <h1 class="text-3xl [&.light-mode-active]:text-gray-900 mb-6">Gerenciamento de Tarefas e Pedidos</h1>
+                <div class="flex justify-between">
+                    <h1 class="text-3xl [&.light-mode-active]:text-gray-900">Gerenciamento</h1>
+                    <div class=" self-start relative group !hidden btn-toggle-menu">
+                        <span class="material-symbols-outlined text-gray-400 rounded-full p-2 hover:bg-gray-600 duration-150 cursor-pointer 
+                                    [&.light-mode-active]:text-gray-600 [&.light-mode-active]:hover:bg-gray-200">menu</span>
+                        <span class="absolute top-2 -right-6 -translate-x-1/2 mb-2 w-max px-2 py-1 text-sm text-white bg-gray-700 rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 delay-200">Abrir Menu Lateral</span>
+                    </div>
+                </div>
                 
-                <div class="grid grid-cols-3 gap-6 mb-8">
+                <div class="grid grid-cols-3 gap-6 mb-8 mt-6">
                     <div class="bg-gray-800 p-5 rounded-2xl border border-gray-700 flex justify-between items-center hover:border-blue-400 duration-300 [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
                         <div>
                             <p class="text-gray-300 text-lg [&.light-mode-active]:text-gray-600">Pedidos em Processo</p>
@@ -272,9 +286,16 @@
             </section>
 
             <section class="hidden" id="stock">
-                <h1 class="text-3xl [&.light-mode-active]:text-gray-900 mb-6">Controle e Inventário de Estoque</h1>
+                <div class="flex justify-between">
+                    <h1 class="text-3xl [&.light-mode-active]:text-gray-900">Controle e Inventário de Estoque</h1>
+                    <div class=" self-start relative group !hidden btn-toggle-menu">
+                        <span class="material-symbols-outlined text-gray-400 rounded-full p-2 hover:bg-gray-600 duration-150 cursor-pointer 
+                                    [&.light-mode-active]:text-gray-600 [&.light-mode-active]:hover:bg-gray-200">menu</span>
+                        <span class="absolute top-2 -right-6 -translate-x-1/2 mb-2 w-max px-2 py-1 text-sm text-white bg-gray-700 rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 delay-200">Abrir Menu Lateral</span>
+                    </div>
+                </div>
 
-                <div class="flex justify-between items-center mb-6">
+                <div class="flex justify-between items-center mb-6 mt-6">
                     <h2 class="text-xl text-gray-400 [&.light-mode-active]:text-gray-600">Itens em Armazém</h2>
                     <button class="bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-lg flex items-center gap-2 duration-200 cursor-pointer">
                         <span class="material-symbols-outlined text-lg">add</span>
@@ -288,9 +309,16 @@
             </section>
 
             <section class="hidden" id="reports">
-                <h1 class="text-3xl [&.light-mode-active]:text-gray-900 mb-6">Relatórios e Análises</h1>
+                <div class="flex justify-between">
+                    <h1 class="text-3xl [&.light-mode-active]:text-gray-900">Relatórios e Análises</h1>
+                    <div class=" self-start relative group !hidden btn-toggle-menu">
+                        <span class="material-symbols-outlined text-gray-400 rounded-full p-2 hover:bg-gray-600 duration-150 cursor-pointer 
+                                    [&.light-mode-active]:text-gray-600 [&.light-mode-active]:hover:bg-gray-200">menu</span>
+                        <span class="absolute top-2 -right-6 -translate-x-1/2 mb-2 w-max px-2 py-1 text-sm text-white bg-gray-700 rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 delay-200">Abrir Menu Lateral</span>
+                    </div>
+                </div>
 
-                <div class="grid grid-cols-4 gap-6">
+                <div class="grid grid-cols-4 gap-6 mt-6">
                     <div class="bg-gray-800 p-5 rounded-2xl border border-gray-700 hover:border-teal-400 duration-300 cursor-pointer [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
                         <span class="material-symbols-outlined text-teal-400 text-4xl mb-3">bar_chart</span>
                         <h3 class="text-white font-semibold [&.light-mode-active]:text-gray-900">Relatório de Vendas (Mês)</h3>
@@ -305,9 +333,16 @@
             </section>
 
             <section class="hidden" id="config">
-                <h1 class="text-3xl [&.light-mode-active]:text-gray-900 mb-6">Configurações do Sistema</h1>
+                <div class="flex justify-between">
+                    <h1 class="text-3xl [&.light-mode-active]:text-gray-900">Configurações do Sistema</h1>
+                    <div class=" self-start relative group !hidden btn-toggle-menu">
+                        <span class="material-symbols-outlined text-gray-400 rounded-full p-2 hover:bg-gray-600 duration-150 cursor-pointer 
+                                    [&.light-mode-active]:text-gray-600 [&.light-mode-active]:hover:bg-gray-200">menu</span>
+                        <span class="absolute top-2 -right-6 -translate-x-1/2 mb-2 w-max px-2 py-1 text-sm text-white bg-gray-700 rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 delay-200">Abrir Menu Lateral</span>
+                    </div>
+                </div>
                 
-                <div class="grid grid-cols-2 gap-6">
+                <div class="grid grid-cols-2 gap-6 mt-6">
                     <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700 [&.light-mode-active]:bg-white [&.light-mode-active]:border-gray-300">
                         <h2 class="text-xl font-semibold flex items-center gap-2 mb-4 [&.light-mode-active]:text-gray-900">
                             <span class="material-symbols-outlined text-purple-400">person</span>
