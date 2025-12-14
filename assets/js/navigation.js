@@ -11,8 +11,8 @@ function setupNavigation() {
     navLinks.forEach(link => {
         link.addEventListener('click', function (event) {
             event.preventDefault(); 
-            const targetId = this.getAttribute('href'); 
             
+            const targetId = this.getAttribute('href'); 
             const activeClass = document.body.classList.contains('light-mode-active') ? 'bg-gray-200' : 'bg-gray-600';
 
             navLinks.forEach(l => l.classList.remove('bg-gray-600', 'bg-gray-200'));
@@ -47,13 +47,13 @@ function toggleSideBar () {
     secondBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             secondBtns.forEach(btn => {
-                btn.classList.toggle('!hidden')
+                btn.classList.toggle('!hidden');
             })
             
-            aside.classList.toggle('!hidden')
-            main.classList.toggle('!col-span-full')
-        })
-    })
+            aside.classList.toggle('!hidden');
+            main.classList.toggle('!col-span-full');
+        });
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
